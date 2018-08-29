@@ -11,6 +11,10 @@ $(document).ready(function () {
           $(".section2 > .document2").addClass("animation");
         }else if (this.activeIndex == 2) {
           $(".section3 > .document3").addClass("animation");
+          $(".section3 > .title").addClass("animation");
+        }else if (this.activeIndex == 3) {
+          $(".section4 > .document4").addClass("animation");
+          $(".section4 > .title").addClass("animation");
         }
         
       },
@@ -21,6 +25,9 @@ $(document).ready(function () {
           $(".section2 > .document2").removeClass("animation");
         }else if (this.activeIndex == 3 || this.activeIndex == 1) {
           $(".section3 > .document3").removeClass("animation");
+        }else if (this.activeIndex == 4 || this.activeIndex == 2) {
+          $(".section4 > .document4").removeClass("animation");
+          $(".section4 > .title").removeClass("animation");
         }
       },
     },
