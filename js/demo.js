@@ -8,7 +8,9 @@ $(document).ready(function () {
         // 进入索引为1 的第二屏时触发
         if (this.activeIndex == 1) {
           $(".section2 > .title").addClass("animation");
-          // $(".section2 > .document2").css("opacity","1");
+          $(".section2 > .document2").addClass("animation");
+        }else if (this.activeIndex == 2) {
+          $(".section3 > .document3").addClass("animation");
         }
         
       },
@@ -16,7 +18,9 @@ $(document).ready(function () {
         // alert(this.activeIndex);
         if(this.activeIndex == 2 || this.activeIndex == 0) {
           $(".section2 > .title").removeClass("animation");
-        
+          $(".section2 > .document2").removeClass("animation");
+        }else if (this.activeIndex == 3 || this.activeIndex == 1) {
+          $(".section3 > .document3").removeClass("animation");
         }
       },
     },

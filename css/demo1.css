@@ -110,8 +110,6 @@
   font-size: 1.8rem;
   font-weight: 800;
   color: aqua;
-  /* opacity: 0; */
-  /* animation: titleAnimation 1s linear 3s; */
 }
 
 .section2 .title.animation {
@@ -127,7 +125,11 @@
   /* opacity: 1; */
   /* transform:  */
   transform: all 1s;
-  animation: document2Animation 1.5s linear 2s;
+  /* animation: document2Animation 1.5s linear 2s; */
+}
+
+.section2 .document2.animation {
+  animation: document2Animation 1.5s linear 1s;
 }
 
 .section2 .document2 li {
@@ -157,6 +159,91 @@
 }
 
 @keyframes document2Animation {
+  0% {
+    left: -460px;
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    left: 20px;
+  }
+}
+
+/* 第三屏 */
+.section3 {
+  background: url("../img/bg.jpg") no-repeat bottom;
+  background-size: cover;
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+.section3 .title {
+  width: 100%;
+  top: 5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: aqua;
+}
+
+.section3 .title.animation {
+  animation: titleAnimation 1s linear;
+}
+
+.section3 .document3 {
+  top: 150px;
+  left: 20px;
+  text-align: left;
+  margin-right: 1rem;
+  line-height: 2.2rem;
+  /* opacity: 1; */
+  /* transform:  */
+  transform: all 1s;
+  /* animation: document3Animation 1.5s linear 2s; */
+}
+
+.section3 .document3 li span > span {
+  color: #FFFF01;
+}
+
+.section3 .document3.animation {
+  animation: document3Animation 1.5s linear 1s;
+}
+
+.section3 .document3 li {
+  margin-bottom: 1rem;
+}
+
+.section3 i {
+  color: #FFFF01;
+  font-size: 2rem;
+}
+
+/* 二屏动画 */
+@keyframes titleAnimation {
+  0% {
+    transform: translateX(-210%);
+    opacity: 0;
+  }
+  30% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes document3Animation {
   0% {
     left: -460px;
     opacity: 0;
