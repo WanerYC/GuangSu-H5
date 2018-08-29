@@ -340,3 +340,9 @@
     left: 80px;
   }
 }
+
+/* 第五屏 */
+.section5 {
+  background: url("../img/bg1.jpg") no-repeat bottom;
+  background-size: cover;
+}
