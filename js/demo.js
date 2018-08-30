@@ -24,8 +24,11 @@ $(document).ready(function () {
           $(".section2 > .title").removeClass("animation");
           $(".section2 > .document2").removeClass("animation");
         }else if (this.activeIndex == 3 || this.activeIndex == 1) {
+          // alert("第三屏的操作")
+          $(".section3 > .title").removeClass("animation");
           $(".section3 > .document3").removeClass("animation");
-        }else if (this.activeIndex == 4 || this.activeIndex == 2) {
+        }else if (this.activeIndex == 4 || this.activeIndex == 3) {
+          // alert("这是该第四屏的操作")
           $(".section4 > .document4").removeClass("animation");
           $(".section4 > .title").removeClass("animation");
         }
@@ -45,7 +48,7 @@ $(document).ready(function () {
   // 指定图表的配置项和数据
   var option = {
       title: {
-          text: 'ECharts 入门示例'
+          text: '用户访问量排名(单位:次数)'
       },
       tooltip: {},
       legend: {
@@ -56,7 +59,7 @@ $(document).ready(function () {
       },
       yAxis: {},
       series: [{
-          name: '销量',
+          // name: '销量',
           type: 'bar',
           data: [5, 20, 36, 10, 10, 20]
       }]

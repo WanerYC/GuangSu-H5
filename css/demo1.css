@@ -1,6 +1,6 @@
 /* 第一屏 */
 .section1 {
-  background: url("../img/bg.jpg") no-repeat bottom;
+  background: url("../img/bg3.jpg") no-repeat bottom;
   background-size: cover;
   font-size: 1.5rem;
 }
@@ -9,7 +9,7 @@
   width: 17rem;
   height: 17rem;
   border-radius: 50%;
-  background-color: #562b549e;
+  background-color:rgba(0, 0, 0, 0.3);
   top: 3.5rem;
   left: 50%;
   transform: translateX(-50%);
@@ -26,7 +26,7 @@
 }
 
 .section1 .circle h5:first-child {
-  color: aqua;
+  color: #daec56;
   font-size: 2.4rem;
   /* #FFFF01 */
   animation: yearAnimation 2s linear 0.8s;
@@ -97,7 +97,7 @@
 
 /* 第二屏 */
 .section2 {
-  background: url("../img/bg.jpg") no-repeat bottom;
+  background: url("../img/bg3.jpg") no-repeat bottom;
   background-size: cover;
   color: #fff;
   font-size: 1.5rem;
@@ -105,31 +105,34 @@
 
 .section2 .title {
   top: 5rem;
-  left: 50%;
+  left: -25%;
   transform: translateX(-50%);
   font-size: 1.8rem;
   font-weight: 800;
-  color: aqua;
+  color: #daec56;
+  transition: left 1s linear;
 }
 
 .section2 .title.animation {
-  animation: titleAnimation 1s linear;
+  /* animation: titleAnimation 1s linear; */
+  left: 50%;
 }
 
 .section2 .document2 {
   top: 150px;
-  left: 20px;
+  /* left: 20px;  */
+  left: -460px; 
   text-align: left;
   margin-right: 1rem;
   line-height: 2.2rem;
-  /* opacity: 1; */
-  /* transform:  */
-  transform: all 1s;
+  /* transform: all 1s; */
   /* animation: document2Animation 1.5s linear 2s; */
+  transition: left 1.5s linear 1s;
 }
 
 .section2 .document2.animation {
-  animation: document2Animation 1.5s linear 1s;
+  /* animation: document2Animation 1.5s linear 1s; */
+  left: 20px;
 }
 
 .section2 .document2 li {
@@ -142,7 +145,7 @@
 }
 
 /* 二屏动画 */
-@keyframes titleAnimation {
+/* @keyframes titleAnimation {
   0% {
     transform: translateX(-210%);
     opacity: 0;
@@ -156,7 +159,7 @@
   100% {
     transform: translateX(-50%);
   }
-}
+} */
 
 @keyframes document2Animation {
   0% {
@@ -177,7 +180,7 @@
 
 /* 第三屏 */
 .section3 {
-  background: url("../img/bg.jpg") no-repeat bottom;
+  background: url("../img/bg3.jpg") no-repeat bottom;
   background-size: cover;
   color: #fff;
   font-size: 1.5rem;
@@ -186,35 +189,37 @@
 .section3 .title {
   width: 100%;
   top: 5rem;
-  left: 50%;
+  left: -27%;
   transform: translateX(-50%);
   font-size: 1.8rem;
   font-weight: 800;
-  color: aqua;
+  color: #daec56;
+  transition: left 0.8s linear;
 }
 
 .section3 .title.animation {
-  animation: titleAnimation 1s linear;
+  /* animation: titleAnimation 1s linear; */
+  left: 50%;
 }
 
 .section3 .document3 {
   top: 150px;
-  left: 20px;
+  left: -460px;
   text-align: left;
   margin-right: 1rem;
   line-height: 2.2rem;
-  /* opacity: 1; */
-  /* transform:  */
   transform: all 1s;
   /* animation: document3Animation 1.5s linear 2s; */
+  transition: left 1.2s linear 0.8s;
+}
+
+.section3 .document3.animation {
+  /* animation: document3Animation 1.5s linear 1s; */
+  left: 20px;
 }
 
 .section3 .document3 li span > span {
   color: #FFFF01;
-}
-
-.section3 .document3.animation {
-  animation: document3Animation 1.5s linear 1s;
 }
 
 .section3 .document3 li {
@@ -226,43 +231,9 @@
   font-size: 2rem;
 }
 
-/* 二屏动画 */
-@keyframes titleAnimation {
-  0% {
-    transform: translateX(-210%);
-    opacity: 0;
-  }
-  30% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-@keyframes document3Animation {
-  0% {
-    left: -460px;
-    opacity: 0;
-  }
-  50% {
-    opacity: 0;
-  }
-  60% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 1;
-    left: 20px;
-  }
-}
-
 /* 第四屏 */
 .section4 {
-  background: url("../img/bg.jpg") no-repeat bottom;
+  background: url("../img/bg3.jpg") no-repeat bottom;
   background-size: cover;
   color: #fff;
   font-size: 1.5rem;
@@ -271,31 +242,33 @@
 .section4 .title {
   width: 100%;
   top: 5rem;
-  left: 50%;
+  left: -15%;
   transform: translateX(-50%);
   font-size: 1.8rem;
   font-weight: 800;
-  color: aqua;
+  color: #daec56;
+  transition: left 0.8s linear;
 }
 
 .section4 .title.animation {
-  animation: titleAnimation 1s linear;
+  /* animation: titleAnimation 1s linear; */
+  left: 50%;
 }
 
 .section4 .document4 {
   top: 150px;
-  left: 80px;
+  left: -210px;
   text-align: left;
   margin-right: 1rem;
   line-height: 2.2rem;
-  /* opacity: 1; */
-  /* transform:  */
   transform: all 1s;
   /* animation: document4Animation 1.5s linear 2s; */
+  transition: left 1.2s linear 0.8s;
 }
 
 .section4 .document4.animation {
-  animation: document4Animation 1.5s linear 1s;
+  /* animation: document4Animation 1.5s linear 1s; */
+  left: 80px;
 }
 
 .section4 .document4 li {
@@ -307,42 +280,8 @@
   font-size: 2rem;
 }
 
-/* 二屏动画 */
-@keyframes titleAnimation {
-  0% {
-    transform: translateX(-210%);
-    opacity: 0;
-  }
-  30% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-@keyframes document4Animation {
-  0% {
-    left: -460px;
-    opacity: 0;
-  }
-  50% {
-    opacity: 0;
-  }
-  60% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 1;
-    left: 80px;
-  }
-}
-
 /* 第五屏 */
 .section5 {
-  background: url("../img/bg1.jpg") no-repeat bottom;
+  background: url("../img/bg3.jpg") no-repeat bottom;
   background-size: cover;
 }
