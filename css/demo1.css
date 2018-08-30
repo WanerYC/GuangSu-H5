@@ -282,6 +282,60 @@
 
 /* 第五屏 */
 .section5 {
-  background: url("../img/bg3.jpg") no-repeat bottom;
+  background: url("../img/bg4.jpg") no-repeat bottom;
   background-size: cover;
+}
+
+#form1 {
+  width: 100%;
+  top: 5rem;
+  left: 1rem;
+}
+
+.section5 h4 {
+  width: 100%;
+  bottom: 3rem;
+  left: 50%;
+  transform: translate(-50%);
+  color: #fff;
+}
+
+/* 第六屏 */
+.section6 {
+  background: url("../img/bg4.jpg") no-repeat bottom;
+  background-size: cover;
+}
+
+#form2 {
+  /* width: 100%; */
+  top: 5rem;
+  left: 0;
+}
+
+.section6 h4 {
+  width: 100%;
+  bottom: 3rem;
+  left: 50%;
+  transform: translate(-50%);
+  color: #fff;
+}
+
+/* 第七屏 */
+.section7 {
+  background: url("../img/bg4.jpg") no-repeat bottom;
+  background-size: cover;
+}
+
+#form7 {
+  /* width: 100%; */
+  top: 5rem;
+  left: 0;
+}
+
+.section7 h4 {
+  width: 100%;
+  bottom: 3rem;
+  left: 50%;
+  transform: translate(-50%);
+  color: #fff;
 }

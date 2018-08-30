@@ -1,5 +1,23 @@
 // 入口函数
 $(document).ready(function () {
+  // 表一数据
+  var data1 = ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
+  var datas1 = [720, 100, 150, 600, 300, 150]
+
+  // 表二数据
+  var data2 = ['直接访问','邮件营销','联盟广告','视频广告','搜索引擎']
+  var datas2 =
+    [
+      {value:335, name:'直接访问'},
+      {value:310, name:'邮件营销'},
+      {value:234, name:'联盟广告'},
+      {value:135, name:'视频广告'},
+      {value:1548, name:'搜索引擎'}
+    ]
+  
+  // 表三数据
+  var data3 = [1, 2, 3, 4, 5, 6, 7]
+  var datas3 = [820, 932, 901, 934, 1290, 1330, 1320]
 
   var swiper = new Swiper('.swiper-container', {
     on: {
@@ -15,6 +33,13 @@ $(document).ready(function () {
         }else if (this.activeIndex == 3) {
           $(".section4 > .document4").addClass("animation");
           $(".section4 > .title").addClass("animation");
+        }else if (this.activeIndex == 4) {
+          // 表一
+          echartsForm1('form1', 'bar', '用户访问量排名(单位:次数)', data1, datas1);
+        }else if (this.activeIndex == 5) {
+          echartsForm2('form2', 'pie', '模块访问量', datas2);  
+        }else if(this.activeIndex == 6) {
+          echartsForm3('form3', 'line', '2018年1月~7月的访问量', data3, datas3);  
         }
         
       },
@@ -42,30 +67,166 @@ $(document).ready(function () {
     },
   });
 
-  // 基于准备好的dom，初始化echarts实例
-  var myChart = echarts.init(document.getElementById('main'));
+  // 封装echarts函数
+  function echartsForm1 (name, types, textname, data1, datas) {
+    var myChart = echarts.init(document.getElementById(name));
+    // 指定图表的配置项和数据
+    var option = {
+        title: {
+            text: textname,
+            x: 'center',  // 标题文字的位置
+            textStyle: {
+              color: '#fff'
+            }
+        },
+        tooltip: {},
+        legend: {
+            data:['销量']
+        },
+        xAxis: {
+          name: '用户',
+          data: data1 //["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
+        },
+        yAxis: {
+          name: '次数'
+        },
+        series: [{
+            // name: '销量',
+            // bar 是柱状图  pie是饼状图
+            type: types,
+            data: datas // [5, 20, 36, 10, 10, 20]
+        }]
+    };
 
-  // 指定图表的配置项和数据
-  var option = {
-      title: {
-          text: '用户访问量排名(单位:次数)'
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+  }
+
+  // 封装echarts函数 表2
+  function echartsForm2 (name, types, textname,  datas) {
+    var myChart = echarts.init(document.getElementById(name));
+    // 指定图表的配置项和数据
+    var option = {
+      title : {
+        text: textname,
+        // subtext: '纯属虚构',
+        x:'center',
+        textStyle: {
+          color: '#fff'
+        }
       },
-      tooltip: {},
+      tooltip : {
+          trigger: 'item',
+          formatter: "{a} <br/>{b} : {c} ({d}%)"
+      },
       legend: {
-          data:['销量']
+          orient: 'horizontal', //  竖着排列 vertical  水平排列: horizontal
+          bottom: 0,
+          left: 'center',
+          data: ['直接访问','邮件营销','联盟广告','视频广告','搜索引擎'],
+          type: 'plain',
+          show: true
+      },
+      series : [
+          {
+              name: '访问来源',
+              type: types,
+              radius : '55%',
+              center: ['50%', '50%'],   // 饼状图的位置
+              data: datas,
+              // [
+              //   {value:335, name:'直接访问'},
+              //   {value:310, name:'邮件营销'},
+              //   {value:234, name:'联盟广告'},
+              //   {value:135, name:'视频广告'},
+              //   {value:1548, name:'搜索引擎'}
+              // ],
+              itemStyle: {  // 折线快点的样式
+                  emphasis: { // 图形的高亮样式
+                      shadowBlur: 10,  //图形阴影的模糊大小
+                      shadowOffsetX: 0, // 阴影水平方向上的偏移距离。
+                      shadowColor: 'rgba(0, 0, 0, 0.5)'  // 阴影颜色
+                  }
+              }
+          }
+      ]
+    };
+
+    if (option && typeof option === "object") {
+      myChart.setOption(option, true);
+    }
+
+    // // 使用刚指定的配置项和数据显示图表。
+    // myChart.setOption(option);
+  }
+
+  // 封装echarts函数 表3
+  function echartsForm3 (name, types, textname, data1, datas) {
+    var myChart = echarts.init(document.getElementById(name));
+    // 指定图表的配置项和数据
+    var option = {
+      title : {
+        text: textname,
+        // subtext: '纯属虚构',
+        x:'center',
+        textStyle: {
+          color: '#fff'
+        }
       },
       xAxis: {
-          data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
+        name: '月',
+        type: 'category',
+        data: data1  // ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
       },
-      yAxis: {},
-      series: [{
-          // name: '销量',
-          type: 'bar',
-          data: [5, 20, 36, 10, 10, 20]
+      yAxis: {
+        name: '访问量',
+        type: 'value'
+      },
+      legend: {
+          orient: 'horizontal', //  竖着排列
+          left: 'center',
+          bottom: 10,
+          data: data1  // ['直接访问','邮件营销','联盟广告','视频广告','搜索引擎']
+      },
+      series : [{
+        data: datas, // [820, 932, 901, 934, 1290, 1330, 1320],
+        type: types
       }]
-  };
+    };
 
-  // 使用刚指定的配置项和数据显示图表。
-  myChart.setOption(option);
+    if (option && typeof option === "object") {
+      myChart.setOption(option, true);
+    }
+
+    // // 使用刚指定的配置项和数据显示图表。
+    // myChart.setOption(option);
+  }
+
+  // // 基于准备好的dom，初始化echarts实例
+  // var myChart = echarts.init(document.getElementById('form1'));
+
+  // // 指定图表的配置项和数据
+  // var option = {
+  //     title: {
+  //         text: '用户访问量排名(单位:次数)'
+  //     },
+  //     tooltip: {},
+  //     legend: {
+  //         data:['销量']
+  //     },
+  //     xAxis: {
+  //         data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
+  //     },
+  //     yAxis: {},
+  //     series: [{
+  //         // name: '销量',
+  //         // bar 是柱状图  pie是饼状图
+  //         type: 'bar',
+  //         data: [5, 20, 36, 10, 10, 20]
+  //     }]
+  // };
+
+  // // 使用刚指定的配置项和数据显示图表。
+  // myChart.setOption(option);
   
 })
