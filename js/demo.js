@@ -19,6 +19,17 @@ $(document).ready(function () {
   var data3 = [1, 2, 3, 4, 5, 6, 7]
   var datas3 = [820, 932, 901, 934, 1290, 1330, 1320]
 
+  // 表四数据
+  var datas4 = [
+      {value:335, name:'直达', selected:true},
+      {value:679, name:'营销广告'},
+      {value:1548, name:'搜索引擎'}
+  ]
+
+  // 表五数据
+  var data5 = ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
+  var datas5 = [720, 100, 150, 600, 300, 150]
+
   var swiper = new Swiper('.swiper-container', {
     on: {
       slideChangeTransitionEnd: function(){
@@ -40,6 +51,10 @@ $(document).ready(function () {
           echartsForm2('form2', 'pie', '模块访问量', datas2);  
         }else if(this.activeIndex == 6) {
           echartsForm3('form3', 'line', '2018年1月~7月的访问量', data3, datas3);  
+        } else if (this.activeIndex == 7) {
+          echartsForm4('form4', 'pie', '新增用户数', datas4); 
+        }else if (this.activeIndex == 8) {
+          echartsForm1('form5', 'bar', '分行访问量排名(单位:次数)',data5,  datas5); 
         }
         
       },
@@ -94,7 +109,10 @@ $(document).ready(function () {
             // name: '销量',
             // bar 是柱状图  pie是饼状图
             type: types,
-            data: datas // [5, 20, 36, 10, 10, 20]
+            data: datas, // [5, 20, 36, 10, 10, 20]
+            itemStyle: {
+              color: ['#FEAD33']
+            }
         }]
     };
 
@@ -192,6 +210,71 @@ $(document).ready(function () {
         data: datas, // [820, 932, 901, 934, 1290, 1330, 1320],
         type: types
       }]
+    };
+
+    if (option && typeof option === "object") {
+      myChart.setOption(option, true);
+    }
+
+    // // 使用刚指定的配置项和数据显示图表。
+    // myChart.setOption(option);
+  }
+
+  // 封装echarts函数 表4
+  function echartsForm4 (name, types, textname, datas) {
+    var myChart = echarts.init(document.getElementById(name));
+    // 指定图表的配置项和数据
+    var option = {
+      title: {
+        text: textname,
+        // subtext: '纯属虚构',
+        x:'center',
+        textStyle: {
+          color: '#fff'
+        }
+      },
+      tooltip: {
+        trigger: 'item',
+        formatter: "{a} <br/>{b}: {c} ({d}%)"
+      },
+      legend: {
+          orient: 'horizontal',
+          x: 'center',
+          bottom: 10,
+          data:['直达','营销广告','搜索引擎','邮件营销','联盟广告','视频广告','百度','谷歌','必应','其他']
+      },
+      series: [
+          {
+            name:'访问来源',
+            type: types,
+            // selectedMode: 'single',
+            radius: '60%',
+
+            label: {
+                normal: {  // 控制文字在饼图内属性
+                    position: 'inner'
+                }
+            },
+            labelLine: {
+                normal: {
+                    show: false
+                }
+            },
+            data: datas,
+            // [
+            //   {value:335, name:'直达', selected:true},
+            //   {value:679, name:'营销广告'},
+            //   {value:1548, name:'搜索引擎'}
+            // ]
+            itemStyle: {  // 折线快点的样式
+              emphasis: { // 图形的高亮样式
+                  shadowBlur: 10,  //图形阴影的模糊大小
+                  shadowOffsetX: 0, // 阴影水平方向上的偏移距离。
+                  shadowColor: 'rgba(0, 0, 0, 0.5)'  // 阴影颜色
+              }
+            }
+          },
+      ]
     };
 
     if (option && typeof option === "object") {

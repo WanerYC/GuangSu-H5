@@ -326,13 +326,74 @@
   background-size: cover;
 }
 
-#form7 {
+#form3 {
   /* width: 100%; */
   top: 5rem;
   left: 0;
 }
 
 .section7 h4 {
+  width: 100%;
+  bottom: 3rem;
+  left: 50%;
+  transform: translate(-50%);
+  color: #fff;
+}
+
+/* 第八屏 */
+
+.section8 {
+  background: url("../img/bg4.jpg") no-repeat bottom;
+  background-size: cover;
+}
+
+#form4 {
+  /* width: 100%; */
+  top: 5rem;
+  left: 0;
+}
+
+.section8 h4 {
+  width: 100%;
+  bottom: 3rem;
+  left: 50%;
+  transform: translate(-50%);
+  color: #fff;
+}
+
+/* 第九屏 */
+.section9 {
+  background: url("../img/bg4.jpg") no-repeat bottom;
+  background-size: cover;
+}
+
+#form5 {
+  /* width: 100%; */
+  top: 5rem;
+  left: 0;
+}
+
+.section9 h4 {
+  width: 100%;
+  bottom: 3rem;
+  left: 50%;
+  transform: translate(-50%);
+  color: #fff;
+}
+
+/* 第十屏 */
+.section10 {
+  background: url("../img/bg4.jpg") no-repeat bottom;
+  background-size: cover;
+}
+
+#form6 {
+  /* width: 100%; */
+  top: 5rem;
+  left: 0;
+}
+
+.section10 h4 {
   width: 100%;
   bottom: 3rem;
   left: 50%;
