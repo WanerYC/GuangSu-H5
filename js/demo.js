@@ -1,29 +1,45 @@
 // 入口函数
 $(document).ready(function () {
   // 表一数据
-  var data1 = ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
-  var datas1 = [720, 100, 150, 600, 300, 150]
+  var data1 = ["高丽华","李生盛","邹华","何春雷","罗蜀章"]
+  var datas1 = [784, 428, 420, 352, 189]
 
   // 表二数据
-  var data2 = ['直接访问','邮件营销','联盟广告','视频广告','搜索引擎']
+  var data2 = ['分行数据','滤镜数据','最新分享','资管数据','指标关注数据']
   var datas2 =
     [
-      {value:335, name:'直接访问'},
-      {value:310, name:'邮件营销'},
-      {value:234, name:'联盟广告'},
-      {value:135, name:'视频广告'},
-      {value:1548, name:'搜索引擎'}
+      {value:518, name:'分行数据'},
+      {value:323, name:'滤镜数据'},
+      {value:222, name:'最新分享'},
+      {value:135, name:'资管数据'},
+      {value:73, name:'指标关注数据'}
     ]
   
   // 表三数据
   var data3 = [1, 2, 3, 4, 5, 6, 7]
-  var datas3 = [820, 932, 901, 934, 1290, 1330, 1320]
+  var datas3 = [1753, 800, 1630, 868, 842, 1666, 1889]
 
   // 表四数据
   var datas4 = [
-      {value:335, name:'直达', selected:true},
-      {value:679, name:'营销广告'},
-      {value:1548, name:'搜索引擎'}
+      {value:2, name:'2'}, // 北京分行
+      {value:1, name:'1'}, // 常州
+      {value:1, name:'1'}, // 大连
+      {value:1, name:'1'}, // 福州
+      {value:2, name:'2'}, // 呼和浩特
+      {value:1, name:'1'}, // 拉萨
+      {value:2, name:'2'}, // 南昌
+      {value:7, name:'7'}, // 南京
+      {value:7, name:'7'}, // 南宁
+      {value:15, name:'15'}, // 宁波
+      {value:1, name:'1'}, // 青岛
+      {value:2, name:'2'}, // 苏州
+      {value:1, name:'1'}, // 乌鲁木齐
+      {value:1, name:'1'}, // 无锡
+      {value:2, name:'2'}, // 武汉
+      {value:1, name:'1'}, // 西宁
+      {value:1, name:'1'}, // 长春
+      {value:20, name:'20'}, // 光大
+      {value:1, name:'1'}, // 遵义
   ]
 
   // 表五数据
@@ -111,7 +127,15 @@ $(document).ready(function () {
             type: types,
             data: datas, // [5, 20, 36, 10, 10, 20]
             itemStyle: {
-              color: ['#FEAD33']
+              // color: ['#FEAD33']
+              // 柱条颜色随机生成
+              color: function(params) { 
+                var colorList = ['#C33531','#EFE42A','#64BD3D','#EE9201','#29AAE3', '#B74AE5','#0AAF9F','#E89589','#16A085','#4A235A','#C39BD3 ','#F9E79F','#BA4A00','#ECF0F1','#616A6B','#EAF2F8','#4A235A','#3498DB' ]; 
+                return colorList[params.dataIndex] 
+              }
+            },
+            label: {
+              color: '#fff'
             }
         }]
     };
@@ -127,7 +151,7 @@ $(document).ready(function () {
     var option = {
       title : {
         text: textname,
-        // subtext: '纯属虚构',
+        subtext: '排名前五模块',
         x:'center',
         textStyle: {
           color: '#fff'
@@ -241,7 +265,7 @@ $(document).ready(function () {
           orient: 'horizontal',
           x: 'center',
           bottom: 10,
-          data:['直达','营销广告','搜索引擎','邮件营销','联盟广告','视频广告','百度','谷歌','必应','其他']
+          data:['北京分行','常州','大连','福州','呼和浩特','拉萨','南昌','南京','南宁','宁波', '青岛', '苏州', '乌鲁木齐', '无锡', '武汉','西宁', '长春', '光大', '遵义']
       },
       series: [
           {
