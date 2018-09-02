@@ -1,10 +1,10 @@
 // 入口函数
 $(document).ready(function () {
-  // 表一数据
+  // 表一数据 用户访问排名 柱状图
   var data1 = ["高丽华","李生盛","邹华","何春雷","罗蜀章"]
   var datas1 = [784, 428, 420, 352, 189]
 
-  // 表二数据
+  // 表二数据 模块访问量 饼状图
   var data2 = ['分行数据','滤镜数据','最新分享','资管数据','指标关注数据']
   var datas2 =
     [
@@ -15,36 +15,36 @@ $(document).ready(function () {
       {value:73, name:'指标关注数据'}
     ]
   
-  // 表三数据
+  // 表三数据 1-7月访问量   折线图
   var data3 = [1, 2, 3, 4, 5, 6, 7]
-  var datas3 = [1753, 800, 1630, 868, 842, 1666, 1889]
+  var datas3 = [1753,800,1630,868, 842, 1666, 1889]
 
-  // 表四数据
+  // 表四数据 新增用户数  饼状图
   var datas4 = [
-      {value:2, name:'2'}, // 北京分行
-      {value:1, name:'1'}, // 常州
-      {value:1, name:'1'}, // 大连
-      {value:1, name:'1'}, // 福州
-      {value:2, name:'2'}, // 呼和浩特
-      {value:1, name:'1'}, // 拉萨
-      {value:2, name:'2'}, // 南昌
-      {value:7, name:'7'}, // 南京
-      {value:7, name:'7'}, // 南宁
-      {value:15, name:'15'}, // 宁波
-      {value:1, name:'1'}, // 青岛
-      {value:2, name:'2'}, // 苏州
-      {value:1, name:'1'}, // 乌鲁木齐
-      {value:1, name:'1'}, // 无锡
-      {value:2, name:'2'}, // 武汉
-      {value:1, name:'1'}, // 西宁
-      {value:1, name:'1'}, // 长春
-      {value:20, name:'20'}, // 光大
-      {value:1, name:'1'}, // 遵义
+      {value:2, name:'北京分行'}, // 北京分行
+      {value:1, name:'常州'}, // 常州
+      {value:1, name:'大连'}, // 大连
+      {value:1, name:'福州'}, // 福州
+      {value:2, name:'呼和浩特'}, // 呼和浩特
+      {value:1, name:'拉萨'}, // 拉萨
+      {value:2, name:'南昌'}, // 南昌
+      {value:7, name:'南京'}, // 南京
+      {value:7, name:'南宁'}, // 南宁
+      {value:15, name:'宁波'}, // 宁波
+      {value:1, name:'青岛'}, // 青岛
+      {value:2, name:'苏州'}, // 苏州
+      {value:1, name:'乌鲁木齐'}, // 乌鲁木齐
+      {value:1, name:'无锡'}, // 无锡
+      {value:2, name:'武汉'}, // 武汉
+      {value:1, name:'西宁'}, // 西宁
+      {value:1, name:'长春'}, // 长春
+      {value:20, name:'光大'}, // 光大
+      {value:1, name:'遵义'}, // 遵义
   ]
 
-  // 表五数据
-  var data5 = ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
-  var datas5 = [720, 100, 150, 600, 300, 150]
+  // 表五数据 分行访问排名 柱状图
+  var data5 = ["贵阳","南京","宁波","西宁","广大"]
+  var datas5 = [446, 800, 323, 625, 1687]
 
   var swiper = new Swiper('.swiper-container', {
     on: {
@@ -71,6 +71,8 @@ $(document).ready(function () {
           echartsForm4('form4', 'pie', '新增用户数', datas4); 
         }else if (this.activeIndex == 8) {
           echartsForm1('form5', 'bar', '分行访问量排名(单位:次数)',data5,  datas5); 
+        }else if (this.activeIndex == 9) {
+          echartsForm5('form5', 'bar', '新增用户数', datas4);
         }
         
       },
@@ -95,6 +97,10 @@ $(document).ready(function () {
       el: '.swiper-pagination',
       clickable: true,
       observer:true,
+    },
+    navigation: {
+      // nextEl: '.swiper-button-bottom',
+      nextEl: '.swiper-button-next',
     },
   });
 
@@ -264,7 +270,7 @@ $(document).ready(function () {
       legend: {
           orient: 'horizontal',
           x: 'center',
-          bottom: 10,
+          bottom: -30,
           data:['北京分行','常州','大连','福州','呼和浩特','拉萨','南昌','南京','南宁','宁波', '青岛', '苏州', '乌鲁木齐', '无锡', '武汉','西宁', '长春', '光大', '遵义']
       },
       series: [
@@ -276,7 +282,8 @@ $(document).ready(function () {
 
             label: {
                 normal: {  // 控制文字在饼图内属性
-                    position: 'inner'
+                  position: 'inner',
+                  formatter: '{c}'
                 }
             },
             labelLine: {
@@ -300,6 +307,33 @@ $(document).ready(function () {
           },
       ]
     };
+
+    if (option && typeof option === "object") {
+      myChart.setOption(option, true);
+    }
+
+    // // 使用刚指定的配置项和数据显示图表。
+    // myChart.setOption(option);
+  }
+
+  // 封装echarts函数 表5
+  function echartsForm5 (name, types, textname, datas) {
+    var myChart = echarts.init(document.getElementById(name));
+    // 指定图表的配置项和数据
+    option = {
+      xAxis: {
+          type: 'category',
+          data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+      },
+      yAxis: {
+          type: 'value'
+      },
+      series: [{
+          data: [120, 200, 150, 80, 70, 110, 130],
+          type: 'bar'
+      }]
+    };
+  
 
     if (option && typeof option === "object") {
       myChart.setOption(option, true);

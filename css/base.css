@@ -61,3 +61,13 @@ ul, li, h1, h2, h3, h4, h5, h6, p {
 .fr {
   float: right;
 }
+
+/* 控制下下按钮 */
+.swiper-button-next, .swiper-container-rtl .swiper-button-prev {
+  left: 50%;
+  transform: rotate(90deg) translateY(50%);
+}
+
+.swiper-button-next, .swiper-button-prev {
+  top: 96%;
+}
