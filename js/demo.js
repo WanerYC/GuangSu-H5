@@ -46,6 +46,10 @@ $(document).ready(function () {
   var data5 = ["贵阳","南京","宁波","西宁","广大"]
   var datas5 = [446, 800, 323, 625, 1687]
 
+  var data6 = []
+  var data6s = []
+
+
   var swiper = new Swiper('.swiper-container', {
     on: {
       slideChangeTransitionEnd: function(){
@@ -66,18 +70,21 @@ $(document).ready(function () {
         }else if (this.activeIndex == 5) {
           echartsForm2('form2', 'pie', '模块访问量', datas2);  
         }else if(this.activeIndex == 6) {
-          echartsForm3('form3', 'line', '2018年1月~7月的访问量', data3, datas3);  
+          echartsForm3('form3', 'line', '2018年1月~7月的访问量', datas3);  
         } else if (this.activeIndex == 7) {
           echartsForm4('form4', 'pie', '新增用户数', datas4); 
         }else if (this.activeIndex == 8) {
           echartsForm1('form5', 'bar', '分行访问量排名(单位:次数)',data5,  datas5); 
         }else if (this.activeIndex == 9) {
-          echartsForm5('form5', 'bar', '新增用户数', datas4);
+          data6 = [28, 29, 13, 3, 8]
+          data6s = [28, 29, 13, 3, 8]
+          echartsForm5('form6', data6, data6s);
         }
         
       },
       slideChangeTransitionStart () {
         // alert(this.activeIndex);
+        console.log(this.activeIndex)
         if(this.activeIndex == 2 || this.activeIndex == 0) {
           $(".section2 > .title").removeClass("animation");
           $(".section2 > .document2").removeClass("animation");
@@ -89,6 +96,9 @@ $(document).ready(function () {
           // alert("这是该第四屏的操作")
           $(".section4 > .document4").removeClass("animation");
           $(".section4 > .title").removeClass("animation");
+        }else if (this.activeIndex == 8) {
+          data6 = []
+          data6s = []
         }
       },
     },
@@ -209,7 +219,7 @@ $(document).ready(function () {
   }
 
   // 封装echarts函数 表3
-  function echartsForm3 (name, types, textname, data1, datas) {
+  function echartsForm3 (name, types, textname, datas) {
     var myChart = echarts.init(document.getElementById(name));
     // 指定图表的配置项和数据
     var option = {
@@ -224,7 +234,7 @@ $(document).ready(function () {
       xAxis: {
         name: '月',
         type: 'category',
-        data: data1  // ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+        data: [1, 2, 3, 4, 5, 6, 7]  // ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
       },
       yAxis: {
         name: '访问量',
@@ -238,7 +248,10 @@ $(document).ready(function () {
       },
       series : [{
         data: datas, // [820, 932, 901, 934, 1290, 1330, 1320],
-        type: types
+        type: types,
+        label: {
+          show: true
+        }
       }]
     };
 
@@ -317,21 +330,63 @@ $(document).ready(function () {
   }
 
   // 封装echarts函数 表5
-  function echartsForm5 (name, types, textname, datas) {
-    var myChart = echarts.init(document.getElementById(name));
+  function echartsForm5 (name, data1, data2) {
+    var myChart = echarts.init(document.getElementById(name));//form6
     // 指定图表的配置项和数据
     option = {
-      xAxis: {
-          type: 'category',
-          data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+      title: {
+        text: '访问频度',
+        x: 'center',  // 标题文字的位置
+        textStyle: {
+          color: '#fff'
+        }
       },
-      yAxis: {
-          type: 'value'
+      tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+            type: 'cross',
+            crossStyle: {
+                color: '#999'
+            }
+        }
       },
-      series: [{
-          data: [120, 200, 150, 80, 70, 110, 130],
-          type: 'bar'
-      }]
+      xAxis: [
+          {
+              type: 'category',
+              data: ['10次以下','10-50次','50-100次','100-150次','150次以上'],
+              axisPointer: {
+                  type: 'shadow'
+              }
+          }
+      ],
+      yAxis: [
+          {
+              type: 'value',
+              name: '访问次数',
+              min: 0,
+              max: 30,
+              interval: 5,
+              axisLabel: {
+                  formatter: '{value}'
+              }
+          },
+      ],
+      series: [
+          {
+              // name:'蒸发量',
+              type:'bar',
+              data:data1 // [28, 29, 13, 3, 8]
+          },
+          {
+              // name:'平均温度',
+              type:'line',
+              //yAxisIndex: 1,
+              label: {
+                  
+              },
+              data:data2 // [28, 29, 13, 3, 8]
+          }
+      ]
     };
   
 
