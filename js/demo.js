@@ -88,17 +88,19 @@ $(document).ready(function () {
         if(this.activeIndex == 2 || this.activeIndex == 0) {
           $(".section2 > .title").removeClass("animation");
           $(".section2 > .document2").removeClass("animation");
+          $(".section4 > .document4").removeClass("animation");
         }else if (this.activeIndex == 3 || this.activeIndex == 1) {
           // alert("第三屏的操作")
           $(".section3 > .title").removeClass("animation");
           $(".section3 > .document3").removeClass("animation");
-        }else if (this.activeIndex == 4 || this.activeIndex == 3) {
+        }else if (this.activeIndex == 4) {
           // alert("这是该第四屏的操作")
-          $(".section4 > .document4").removeClass("animation");
           $(".section4 > .title").removeClass("animation");
+          $(".section4 > .document4").removeClass("animation");
         }else if (this.activeIndex == 8) {
           data6 = []
           data6s = []
+          console.log(data6);
         }
       },
     },
@@ -398,31 +400,5 @@ $(document).ready(function () {
     // myChart.setOption(option);
   }
 
-  // // 基于准备好的dom，初始化echarts实例
-  // var myChart = echarts.init(document.getElementById('form1'));
 
-  // // 指定图表的配置项和数据
-  // var option = {
-  //     title: {
-  //         text: '用户访问量排名(单位:次数)'
-  //     },
-  //     tooltip: {},
-  //     legend: {
-  //         data:['销量']
-  //     },
-  //     xAxis: {
-  //         data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
-  //     },
-  //     yAxis: {},
-  //     series: [{
-  //         // name: '销量',
-  //         // bar 是柱状图  pie是饼状图
-  //         type: 'bar',
-  //         data: [5, 20, 36, 10, 10, 20]
-  //     }]
-  // };
-
-  // // 使用刚指定的配置项和数据显示图表。
-  // myChart.setOption(option);
-  
 })
