@@ -5,15 +5,8 @@ $(document).ready(function () {
   var datas1 = [784, 428, 420, 352, 189]
 
   // 表二数据 模块访问量 饼状图
-  var data2 = ['分行数据','滤镜数据','最新分享','资管数据','指标关注数据']
-  var datas2 =
-    [
-      {value:518, name:'分行数据'},
-      {value:323, name:'滤镜数据'},
-      {value:222, name:'最新分享'},
-      {value:135, name:'资管数据'},
-      {value:73, name:'指标关注数据'}
-    ]
+  var data2 =[] //['分行数据','滤镜数据','最新分享','资管数据','指标关注数据']
+  var datas2 = []
   
   // 表三数据 1-7月访问量   折线图
   var data3 = [1, 2, 3, 4, 5, 6, 7]
@@ -68,7 +61,16 @@ $(document).ready(function () {
           // 表一
           echartsForm1('form1', 'bar', '用户访问量排名(单位:次数)', data1, datas1);
         }else if (this.activeIndex == 5) {
-          echartsForm2('form2', 'pie', '模块访问量', datas2);  
+          data2 =['分行数据','滤镜数据','最新分享','资管数据','指标关注数据']
+          datas2 =
+            [
+              {value:518, name:'分行数据'},
+              {value:323, name:'滤镜数据'},
+              {value:222, name:'最新分享'},
+              {value:135, name:'资管数据'},
+              {value:73, name:'指标关注数据'}
+            ]
+          echartsForm2('form2', 'pie', '模块访问量', data2, datas2);  
         }else if(this.activeIndex == 6) {
           echartsForm3('form3', 'line', '2018年1月~7月的访问量', datas3);  
         } else if (this.activeIndex == 7) {
@@ -78,6 +80,7 @@ $(document).ready(function () {
         }else if (this.activeIndex == 9) {
           data6 = [28, 29, 13, 3, 8]
           data6s = [28, 29, 13, 3, 8]
+          console.log(data6);
           echartsForm5('form6', data6, data6s);
         }
         
@@ -88,6 +91,7 @@ $(document).ready(function () {
         if(this.activeIndex == 2 || this.activeIndex == 0) {
           $(".section2 > .title").removeClass("animation");
           $(".section2 > .document2").removeClass("animation");
+          $(".section4 > .title").removeClass("animation");
           $(".section4 > .document4").removeClass("animation");
         }else if (this.activeIndex == 3 || this.activeIndex == 1) {
           // alert("第三屏的操作")
@@ -97,6 +101,10 @@ $(document).ready(function () {
           // alert("这是该第四屏的操作")
           $(".section4 > .title").removeClass("animation");
           $(".section4 > .document4").removeClass("animation");
+          datas2 = []
+          data2 = []
+        }else if (this.activeIndex == 4 || this.activeIndex == 6) {
+          datas2 = []
         }else if (this.activeIndex == 8) {
           data6 = []
           data6s = []
@@ -163,7 +171,7 @@ $(document).ready(function () {
   }
 
   // 封装echarts函数 表2
-  function echartsForm2 (name, types, textname,  datas) {
+  function echartsForm2 (name, types, textname,data2,  datas) {
     var myChart = echarts.init(document.getElementById(name));
     // 指定图表的配置项和数据
     var option = {
@@ -183,7 +191,7 @@ $(document).ready(function () {
           orient: 'horizontal', //  竖着排列 vertical  水平排列: horizontal
           bottom: 0,
           left: 'center',
-          data: ['直接访问','邮件营销','联盟广告','视频广告','搜索引擎'],
+          data: data2, //['直接访问','邮件营销','联盟广告','视频广告','搜索引擎'],
           type: 'plain',
           show: true
       },
@@ -384,7 +392,11 @@ $(document).ready(function () {
               type:'line',
               //yAxisIndex: 1,
               label: {
-                  
+                  show: true,
+                  // formatter: '{c}'
+                  formatter: function (p) {
+                    return parseInt(p.data / 81 * 100) + '%'
+                  }
               },
               data:data2 // [28, 29, 13, 3, 8]
           }

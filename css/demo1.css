@@ -59,10 +59,10 @@
 /* 第一屏动画 */
 @keyframes cirleAnimation {
   from {
-    opacity: 0;
+    opacity: 0
   }
   to {
-    opacity: 1;
+    opacity: 1
   }
 }
 
@@ -143,23 +143,6 @@
   color: #FFFF01;
   font-size: 2rem;
 }
-
-/* 二屏动画 */
-/* @keyframes titleAnimation {
-  0% {
-    transform: translateX(-210%);
-    opacity: 0;
-  }
-  30% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-} */
 
 @keyframes document2Animation {
   0% {
