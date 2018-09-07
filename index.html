@@ -7,6 +7,7 @@
 
   <!-- Link Swiper's CSS -->
   <link rel="stylesheet" href="./css/swiper.min.css">
+  <link rel="stylesheet" href="./css/animate.min.css">
   <link rel="stylesheet" href="./css/base.css">
   <link rel="stylesheet" href="./css/demo1.css">
   <link rel="stylesheet" href="./css/font.css">
@@ -20,8 +21,8 @@
     <div class="swiper-wrapper">
       <!-- 第一屏 -->
       <div class="swiper-slide section1 pr">
-        <div class="circle pa">
-          <h5 class="year">2018</h5>
+        <div class="circle pa ani" swiper-animate-effect="bounce" swiper-animate-duration="0.5s">
+          <h5 class="year ani" swiper-animate-effect="rotateIn" swiper-animate-duration="0.5s" swiper-animate-delay="0.2s">2018</h5>
           <h5>光速观察</h5>
           <h5>数据分析</h5>
         </div>
@@ -31,17 +32,17 @@
           <li>深度挖掘用户数据</li>
           <li>整理用户数据</li>
         </ul>
-        <div class="enjoy pa">
+        <div class="enjoy pa ani" swiper-animate-effect="wobble" swiper-animate-duration="4s" swiper-animate-delay="0.6s">
           邀您品鉴
         </div>
       </div>
       <!-- 第二屏 -->
       <div class="swiper-slide section2 pr">
-        <h4 class="title pa">
+        <h4 class="title pa ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="0.5s">
           版本迭代介绍
           <!-- <i class="iconfont">&#xe607;</i> -->
         </h4>
-        <ul class="document2 pa">
+        <ul class="document2 pa ani"  swiper-animate-effect="fadeInLeft" swiper-animate-duration="0.5s">
           <li>
             <i class="iconfont">&#xe607;</i>
             <span>V2.2 首页权限控制&底部导航互换位置</span>
@@ -70,11 +71,11 @@
       </div>
       <!-- 第三屏 -->
       <div class="swiper-slide section3 pr">
-        <h4 class="title pa">
+        <h4 class="title pa ani"  swiper-animate-effect="fadeInLeft" swiper-animate-duration="0.5s">
           客户端总体情况
           <!-- <i class="iconfont">&#xe607;</i> -->
         </h4>
-        <ul class="document3 pa">
+        <ul class="document3 pa ani"  swiper-animate-effect="fadeInLeft" swiper-animate-duration="0.5s" swiper-animate-delay="0.2s">
           <li>
             <i class="iconfont">&#xe607;</i>
             <span>2018年1-8月新增<span class="yellow">69</span>名用户</span>
@@ -99,11 +100,11 @@
       </div>
       <!-- 第四屏 -->
       <div class="swiper-slide section4 pr">
-        <h4 class="title pa">
+        <h4 class="title pa ani"  swiper-animate-effect="fadeInLeft" swiper-animate-duration="0.5s">
           新增指标
           <!-- <i class="iconfont">&#xe607;</i> -->
         </h4>
-        <ul class="document4 pa">
+        <ul class="document4 pa ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="0.5s" swiper-animate-delay="0.2s">
           <li>
             <i class="iconfont">&#xe607;</i>
             <span>核心存款</span>
@@ -133,7 +134,7 @@
       <!-- 第五屏 -->
       <div class="swiper-slide section5 pr">
         <!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
-        <div id="form1" style="width: 90%;height:400px;" class="pa"></div>
+        <div id="form1" style="width: 90%;height:400px;" class="pa ani" swiper-animate-effect="rubberBand" swiper-animate-duration="0.2s"></div>
         <h4 class="pa">说明: 2018年分行用户访问量汇总 <br> 光大银行高丽华访问量最高 </h4>
       </div>
       <!-- 第六屏 -->
@@ -174,6 +175,7 @@
 
   <!-- Swiper JS -->
   <script src="js/swiper.min.js"></script>
+  <script src="js/swiper.animate1.0.3.min.js"></script>
   <script src="js/jquery.js"></script>
   <script src="js/demo.js"></script>
   <!-- Initialize Swiper -->

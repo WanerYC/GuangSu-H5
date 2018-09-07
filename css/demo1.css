@@ -11,12 +11,10 @@
   border-radius: 50%;
   background-color:rgba(0, 0, 0, 0.3);
   top: 3.5rem;
-  left: 50%;
+  /* left: 50%; */
   transform: translateX(-50%);
   opacity: 1;
   color: #fff;
-  /* 调用动画 */
-  animation: cirleAnimation 1s linear alternate;
 }
 
 .section1 .circle h5 {
@@ -27,10 +25,7 @@
 
 .section1 .circle h5:first-child {
   color: #daec56;
-  font-size: 2.4rem;
-  /* #FFFF01 */
-  animation: yearAnimation 2s linear 0.8s;
-  
+  font-size: 2.4rem;  
 }
 
 .section1 .circle h5:last-child {
@@ -54,29 +49,6 @@
   left: 50%;
   transform: translateX(-50%);
   animation: enjoyAnimation 1.5s linear 2s;
-}
-
-/* 第一屏动画 */
-@keyframes cirleAnimation {
-  from {
-    opacity: 0
-  }
-  to {
-    opacity: 1
-  }
-}
-
-/* 2017 旋转动画 */
-@keyframes yearAnimation {
-  0% {
-    transform: rotateY(0deg) scale(0.7)
-  }
-  50% {
-    transform: rotateY(180deg) scale(1.2)
-  }
-  100%{
-    transform: rotateY(0) scale(1)
-  }
 }
 
 /* 邀您品鉴动画 */
@@ -105,34 +77,26 @@
 
 .section2 .title {
   top: 5rem;
-  left: -25%;
+  /* left: -25%; */
   transform: translateX(-50%);
   font-size: 1.8rem;
   font-weight: 800;
   color: #daec56;
-  transition: left 1s linear;
+  /* transition: left 0.5s linear; */
 }
 
-.section2 .title.animation {
+/* .section2 .title.animation { */
   /* animation: titleAnimation 1s linear; */
-  left: 50%;
-}
+  /* left: 50%; */
+/* } */
 
 .section2 .document2 {
   top: 150px;
   /* left: 20px;  */
-  left: -460px; 
+  /* left: -460px;  */
   text-align: left;
   margin-right: 1rem;
   line-height: 2.2rem;
-  /* transform: all 1s; */
-  /* animation: document2Animation 1.5s linear 2s; */
-  transition: left 1.5s linear 1s;
-}
-
-.section2 .document2.animation {
-  /* animation: document2Animation 1.5s linear 1s; */
-  left: 20px;
 }
 
 .section2 .document2 li {
@@ -142,23 +106,6 @@
 .section2 i {
   color: #FFFF01;
   font-size: 2rem;
-}
-
-@keyframes document2Animation {
-  0% {
-    left: -460px;
-    opacity: 0;
-  }
-  50% {
-    opacity: 0;
-  }
-  60% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 1;
-    left: 20px;
-  }
 }
 
 /* 第三屏 */
@@ -172,33 +119,20 @@
 .section3 .title {
   width: 100%;
   top: 5rem;
-  left: -27%;
+  /* left: -27%; */
   transform: translateX(-50%);
   font-size: 1.8rem;
   font-weight: 800;
   color: #daec56;
-  transition: left 0.8s linear;
-}
-
-.section3 .title.animation {
-  /* animation: titleAnimation 1s linear; */
-  left: 50%;
 }
 
 .section3 .document3 {
   top: 150px;
-  left: -460px;
+  /* left: -460px; */
   text-align: left;
   margin-right: 1rem;
   line-height: 2.2rem;
   transform: all 1s;
-  /* animation: document3Animation 1.5s linear 2s; */
-  transition: left 1.2s linear 0.8s;
-}
-
-.section3 .document3.animation {
-  /* animation: document3Animation 1.5s linear 1s; */
-  left: 20px;
 }
 
 .section3 .document3 li span > span {
@@ -225,33 +159,19 @@
 .section4 .title {
   width: 100%;
   top: 5rem;
-  left: -15%;
+  /* left: -15%; */
   transform: translateX(-50%);
   font-size: 1.8rem;
   font-weight: 800;
   color: #daec56;
-  transition: left 0.8s linear;
 }
-
-.section4 .title.animation {
-  /* animation: titleAnimation 1s linear; */
-  left: 50%;
-}
-
 .section4 .document4 {
   top: 150px;
-  left: -210px;
+  /* left: -210px; */
   text-align: left;
   margin-right: 1rem;
   line-height: 2.2rem;
   transform: all 1s;
-  /* animation: document4Animation 1.5s linear 2s; */
-  transition: left 1.2s linear 0.8s;
-}
-
-.section4 .document4.animation {
-  /* animation: document4Animation 1.5s linear 1s; */
-  left: 80px;
 }
 
 .section4 .document4 li {
@@ -373,7 +293,7 @@
 #form6 {
   /* width: 100%; */
   top: 5rem;
-  /* left: 0; */
+  left: 0;
 }
 
 .section10 h4 {

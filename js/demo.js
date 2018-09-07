@@ -45,19 +45,28 @@ $(document).ready(function () {
 
   var swiper = new Swiper('.swiper-container', {
     on: {
+      init: function () {
+        swiperAnimateCache(this); //隐藏动画元素 
+        swiperAnimate(this); //初始化完成开始动画
+      },
+      slideChangeTransitionStart () {
+        console.log(this.activeIndex)
+        if (this.activeIndex == 4) {
+          datas2 = []
+          data2 = []
+        }else if (this.activeIndex == 4 || this.activeIndex == 6) {
+          datas2 = []
+        }else if (this.activeIndex == 8) {
+          data6 = []
+          data6s = []
+          console.log(data6);
+        }
+      },
       slideChangeTransitionEnd: function(){
+        swiperAnimate(this); //每个slide切换结束时也运行当前slide动画
         // alert(this.activeIndex);//切换结束时，告诉我现在是第几个slide
         // 进入索引为1 的第二屏时触发
-        if (this.activeIndex == 1) {
-          $(".section2 > .title").addClass("animation");
-          $(".section2 > .document2").addClass("animation");
-        }else if (this.activeIndex == 2) {
-          $(".section3 > .document3").addClass("animation");
-          $(".section3 > .title").addClass("animation");
-        }else if (this.activeIndex == 3) {
-          $(".section4 > .document4").addClass("animation");
-          $(".section4 > .title").addClass("animation");
-        }else if (this.activeIndex == 4) {
+        if (this.activeIndex == 4) {
           // 表一
           echartsForm1('form1', 'bar', '用户访问量排名(单位:次数)', data1, datas1);
         }else if (this.activeIndex == 5) {
@@ -84,32 +93,6 @@ $(document).ready(function () {
           echartsForm5('form6', data6, data6s);
         }
         
-      },
-      slideChangeTransitionStart () {
-        // alert(this.activeIndex);
-        console.log(this.activeIndex)
-        if(this.activeIndex == 2 || this.activeIndex == 0) {
-          $(".section2 > .title").removeClass("animation");
-          $(".section2 > .document2").removeClass("animation");
-          $(".section4 > .title").removeClass("animation");
-          $(".section4 > .document4").removeClass("animation");
-        }else if (this.activeIndex == 3 || this.activeIndex == 1) {
-          // alert("第三屏的操作")
-          $(".section3 > .title").removeClass("animation");
-          $(".section3 > .document3").removeClass("animation");
-        }else if (this.activeIndex == 4) {
-          // alert("这是该第四屏的操作")
-          $(".section4 > .title").removeClass("animation");
-          $(".section4 > .document4").removeClass("animation");
-          datas2 = []
-          data2 = []
-        }else if (this.activeIndex == 4 || this.activeIndex == 6) {
-          datas2 = []
-        }else if (this.activeIndex == 8) {
-          data6 = []
-          data6s = []
-          console.log(data6);
-        }
       },
     },
     direction: 'vertical',
@@ -193,7 +176,8 @@ $(document).ready(function () {
           left: 'center',
           data: data2, //['直接访问','邮件营销','联盟广告','视频广告','搜索引擎'],
           type: 'plain',
-          show: true
+          show: true,
+          selectedMode: false
       },
       series : [
           {
@@ -294,6 +278,7 @@ $(document).ready(function () {
           orient: 'horizontal',
           x: 'center',
           bottom: -30,
+          selectedMode: false, // 图例选择的模式 点击隐藏响应模块
           data:['北京分行','常州','大连','福州','呼和浩特','拉萨','南昌','南京','南宁','宁波', '青岛', '苏州', '乌鲁木齐', '无锡', '武汉','西宁', '长春', '光大', '遵义']
       },
       series: [
