@@ -1,8 +1,8 @@
 // 入口函数
 $(document).ready(function () {
   // 表一数据 用户访问排名 柱状图
-  var data1 = ["高丽华","李生盛","邹华","何春雷","罗蜀章"]
-  var datas1 = [784, 428, 420, 352, 189]
+  var data1 = ["杨静","李生盛","吴晓艳","何春雷","罗蜀章"]
+  var datas1 = [174, 428, 179, 352, 189]
 
   // 表二数据 模块访问量 饼状图
   var data2 =[] //['分行数据','滤镜数据','最新分享','资管数据','指标关注数据']
@@ -59,6 +59,7 @@ $(document).ready(function () {
         }else if (this.activeIndex == 8) {
           data6 = []
           data6s = []
+          // $('')
           console.log(data6);
         }
       },
@@ -94,6 +95,14 @@ $(document).ready(function () {
         }
         
       },
+      touchStart: function(event){
+        // alert('事件触发了;');
+        // console.log(this.activeIndex)
+        if (this.activeIndex == 4) {
+          // 表一
+          echartsForm1('form1', 'bar', '用户访问量排名(单位:次数)', data1, datas1);
+        }
+      },
     },
     direction: 'vertical',
     pagination: {
@@ -124,7 +133,7 @@ $(document).ready(function () {
             data:['销量']
         },
         xAxis: {
-          name: '用户',
+          // name: '用户',
           data: data1 //["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
         },
         yAxis: {
