@@ -175,7 +175,7 @@ $(document).ready(function () {
             {value:2, name:'武汉'}, // 武汉
             {value:1, name:'西宁'}, // 西宁
             {value:1, name:'长春'}, // 长春
-            {value:20, name:'光大'}, // 光大
+            {value:18, name:'光大'}, // 光大
             {value:1, name:'遵义'}, // 遵义
           ],
           // [
