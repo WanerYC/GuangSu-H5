@@ -208,7 +208,7 @@ $(document).ready(function () {
     },
     xAxis: {
       // name: '用户',
-      data:["贵阳","南京","宁波","西宁","广大"],
+      data:["贵阳","南京","宁波","西宁","杭州"],
     },
     yAxis: {
       name: '次数'
@@ -217,7 +217,7 @@ $(document).ready(function () {
         // name: '销量',
         // bar 是柱状图  pie是饼状图
         type: 'bar',
-        data: [446, 800, 323, 625, 1687],
+        data: [446, 800, 323, 625, 138],
         itemStyle: {
           // color: ['#FEAD33']
           // 柱条颜色随机生成
@@ -300,19 +300,19 @@ $(document).ready(function () {
       },
       slideChangeTransitionStart () {
         // console.log(this.activeIndex)
-        if (this.activeIndex == 3 || this.activeIndex == 5) {
+        if (this.activeIndex ==2 || this.activeIndex == 4) {
           myChart1.clear()
           myChart3.clear()
-        }else if (this.activeIndex == 4 || this.activeIndex == 6) {
+        }else if (this.activeIndex == 3 || this.activeIndex == 5) {
           myChart2.clear()
           myChart4.clear()
-        }else if (this.activeIndex == 7) {
+        }else if (this.activeIndex == 6) {
           myChart3.clear()
           myChart5.clear()
-        }else if (this.activeIndex == 8) {
+        }else if (this.activeIndex == 7) {
           myChart4.clear()       
           myChart6.clear()       
-        }else if (this.activeIndex == 9) {
+        }else if (this.activeIndex == 8) {
           myChart5.clear()
         }
       },
@@ -320,23 +320,23 @@ $(document).ready(function () {
         swiperAnimate(this); //每个slide切换结束时也运行当前slide动画
         // alert(this.activeIndex);//切换结束时，告诉我现在是第几个slide
         // 进入索引为1 的第二屏时触发
-        if (this.activeIndex == 4) {
+        if (this.activeIndex == 3) {
           // 表一
             myChart1.setOption(option1);
-        }else if (this.activeIndex == 5) {
+        }else if (this.activeIndex == 4) {
           // 表二
           myChart2.setOption(option2);
-        }else if(this.activeIndex == 6) {
+        }else if(this.activeIndex == 5) {
           // 表三
           myChart3.setOption(option3);
           // echartsForm3('form3', 'line', '2018年1月~7月的访问量', datas3);  
-        } else if (this.activeIndex == 7) {
+        } else if (this.activeIndex == 6) {
           // 表四
           myChart4.setOption(option4);
-        }else if (this.activeIndex == 8) {
+        }else if (this.activeIndex == 7) {
           // 表五
           myChart5.setOption(option5);
-        }else if (this.activeIndex == 9) {
+        }else if (this.activeIndex == 8) {
           // 表六
           myChart6.setOption(option6);
         }
@@ -347,29 +347,28 @@ $(document).ready(function () {
         // console.log(this.activeIndex)
         // alert('触发了滑动事件')
 
-        var num;
         switch (this.activeIndex) {
-          case 4:
+          case 3:
           myChart1.clear();
           myChart1.setOption(option1);
           break;
-          case 5:
+          case 4:
           myChart2.clear();
           myChart2.setOption(option2);
           break;
-          case 6:
+          case 5:
           myChart3.clear();
           myChart3.setOption(option3);
           break;
-          case 7:
+          case 6:
           myChart4.clear();
           myChart4.setOption(option4);
           break;
-          case 8:
+          case 7:
           myChart5.clear();
           myChart5.setOption(option5);
           break;
-          case 9:
+          case 8:
           myChart6.clear();
           myChart6.setOption(option6);
           break;
