@@ -78,8 +78,8 @@
 
 .section2 .title {
   top: 5rem;
-  /* left: -25%; */
-  transform: translateX(-50%);
+  left: -25%;
+  margin-left: 50%;
   font-size: 1.8rem;
   font-weight: 800;
   color: #daec56;
@@ -93,8 +93,8 @@
 
 .section2 .document2 {
   top: 150px;
-  /* left: 20px;  */
-  /* left: -460px;  */
+  left: 20px; 
+  margin-left: -2%;
   text-align: left;
   margin-right: 1rem;
   line-height: 2.2rem;
@@ -121,6 +121,8 @@
   width: 100%;
   top: 5rem;
   /* left: -27%; */
+  left: 50%;
+  margin-left: -50%;
   transform: translateX(-50%);
   font-size: 1.8rem;
   font-weight: 800;
@@ -130,6 +132,8 @@
 .section3 .document3 {
   top: 150px;
   /* left: -460px; */
+  left: 50%;
+  margin-left: -48%;
   text-align: left;
   margin-right: 1rem;
   line-height: 2.2rem;
@@ -190,7 +194,7 @@
 
 #form1 {
   width: 100%;
-  top: 5rem;
+  top: 3.5rem;
   left: 1rem;
 }
 
@@ -210,7 +214,7 @@
 
 #form2 {
   /* width: 100%; */
-  top: 5rem;
+  top: 3.5rem;
   left: 1rem;
 }
 
@@ -230,7 +234,7 @@
 
 #form3 {
   /* width: 100%; */
-  top: 5rem;
+  top: 3.5rem;
   left: 0.4rem;
 }
 
@@ -251,7 +255,7 @@
 
 #form4 {
   /* width: 100%; */
-  top: 5rem;
+  top: 3.5rem;
   left: 0;
 }
 
@@ -271,7 +275,7 @@
 
 #form5 {
   /* width: 100%; */
-  top: 5rem;
+  top: 3.5rem;
   left: 0.5rem;
 }
 
@@ -291,7 +295,7 @@
 
 #form6 {
   /* width: 100%; */
-  top: 5rem;
+  top: 3.5rem;
   left: 0;
 }
 
