@@ -10,7 +10,7 @@
   height: 17rem;
   border-radius: 50%;
   background-color:rgba(0, 0, 0, 0.3);
-  top: 3.5rem;
+  top: 2.8rem;
   left: 50%;
   margin-left: -8.5rem;
   /* transform: translateX(-50%); */
@@ -45,11 +45,12 @@
 }
 
 .section1 .enjoy {
+  width: 100%;
   color: #FFFF01;
   bottom: 10%;
   left: 50%;
-  transform: translateX(-50%);
-  animation: enjoyAnimation 1.5s linear 2s;
+  margin-left: -50%;
+  /* animation: enjoyAnimation 1.5s linear 2s; */
 }
 
 /* 邀您品鉴动画 */
